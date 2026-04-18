@@ -31,11 +31,11 @@ app.disable("x-powered-by")
 
 // Health check
 app.get("/", (req: Request, res: Response) => {
-  res.json({
-    status: "ok",
-    message: "TypeScript Express API",
-    timestamp: new Date().toISOString()
-  })
+	res.json({
+		status: "ok",
+		message: "TypeScript Express API",
+		timestamp: new Date().toISOString(),
+	})
 })
 
 // API de jobs
@@ -43,9 +43,9 @@ app.use("/jobs", jobsRouter)
 
 // 404 para rutas no encontradas
 app.use((req: Request, res: Response) => {
-  res.status(404).json({
-    message: `Route not found: ${req.method} ${req.path}`
-  })
+	res.status(404).json({
+		message: `Route not found: ${req.method} ${req.path}`,
+	})
 })
 
 // ================================
@@ -55,7 +55,7 @@ app.use((req: Request, res: Response) => {
 const PORT = process.env.PORT ?? 3000
 
 app.listen(PORT, () => {
-  console.log(`
+	console.log(`
 ╔════════════════════════════════════════════╗
 ║                                            ║
 ║   🚀 Express + TypeScript Server           ║

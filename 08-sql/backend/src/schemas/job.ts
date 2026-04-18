@@ -12,39 +12,41 @@ import { z } from "zod"
 // ================================
 
 export const jobDataSchema = z.object({
-  technology: z.array(z.string()),
-  modality: z.enum(["remote", "onsite", "hybrid"]),
-  level: z.enum(["junior", "mid", "senior"])
+	technology: z.array(z.string()),
+	modality: z.enum(["remote", "onsite", "hybrid"]),
+	level: z.enum(["junior", "mid", "senior"]),
 })
 
 export const jobContentSchema = z.object({
-  description: z.string(),
-  responsibilities: z.string(),
-  requirements: z.string(),
-  about: z.string()
+	description: z.string(),
+	responsibilities: z.string(),
+	requirements: z.string(),
+	about: z.string(),
 })
 
 export const jobSchema = z.object({
-  title: z.string({
-    required_error: "Title is required",
-    invalid_type_error: "Title must be a string"
-  }).min(3, "Title must be at least 3 characters"),
-  
-  company: z.string({
-    required_error: "Company is required"
-  }),
-  
-  location: z.string({
-    required_error: "Location is required"
-  }),
-  
-  description: z.string({
-    required_error: "Description is required"
-  }),
-  
-  data: jobDataSchema,
-  
-  content: jobContentSchema.optional()
+	title: z
+		.string({
+			required_error: "Title is required",
+			invalid_type_error: "Title must be a string",
+		})
+		.min(3, "Title must be at least 3 characters"),
+
+	company: z.string({
+		required_error: "Company is required",
+	}),
+
+	location: z.string({
+		required_error: "Location is required",
+	}),
+
+	description: z.string({
+		required_error: "Description is required",
+	}),
+
+	data: jobDataSchema,
+
+	content: jobContentSchema.optional(),
 })
 
 // ================================
@@ -63,11 +65,11 @@ export type JobContentInput = z.infer<typeof jobContentSchema>
 // ================================
 
 export function validateJob(input: unknown) {
-  return jobSchema.safeParse(input)
+	return jobSchema.safeParse(input)
 }
 
 export function validatePartialJob(input: unknown) {
-  return jobSchema.partial().safeParse(input)
+	return jobSchema.partial().safeParse(input)
 }
 
 // ================================
@@ -78,6 +80,4 @@ export function validatePartialJob(input: unknown) {
 // { success: true, data: T }
 // { success: false, error: ZodError }
 
-export type ValidationResult<T> = 
-  | { success: true; data: T }
-  | { success: false; error: z.ZodError }
+export type ValidationResult<T> = { success: true; data: T } | { success: false; error: z.ZodError }
