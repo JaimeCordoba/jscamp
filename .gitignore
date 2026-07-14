@@ -5,3 +5,13 @@ node_modules/
 *.db
 *.db-shm
 *.db-wal
+
+# Build output
+dist/
+
+# Vercel
+.vercel
+
+# Runtime data (Docker volumes example)
+10-docker/04-volumes/data/
+
