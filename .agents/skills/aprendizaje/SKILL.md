@@ -9,7 +9,7 @@ Cada vez que el usuario te indique que añadas una nota de aprendizaje, debes au
 
 ## 1. Ubicación y Nomenclatura del Archivo
 
-- **Ruta:** El archivo debe crearse en el directorio `c:\Proyectos\rpr\docs\01_aprendizaje`
+- **Ruta:** El archivo debe crearse en el directorio `D:\proyectos\proyectos-de-practica\jscamp\docs\01_aprendizaje`
 - **Nombre:** El formato debe ser `XX_aprendizaje_descripcion_problema.md`
   - `XX` son números secuenciales de dos dígitos con un guion bajo (ej. `01`, `02`, `03`...). Antes de crear el archivo, **debes listar los archivos** de ese directorio para saber cuál es el próximo número que toca.
   - `descripcion_problema` debe ser un nombre corto en kebab-case o snake-case que resuma de qué trata.
